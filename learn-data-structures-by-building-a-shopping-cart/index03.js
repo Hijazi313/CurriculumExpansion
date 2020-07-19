@@ -1,3 +1,26 @@
+function Products(){
+this.products = [];
+}
+
+Products.prototype.addProduct = function(product){
+  if(this.products.length < 1){
+      return this.products.push(product)
+  }
+  else{
+    this.products.forEach(prod =>{
+      if(prod["id"] !== product["id"]){
+     return  this.products.push(product);
+      }
+      return   prod["qty"] += product["qty"];
+
+    })
+  }
+}
+
+Products.prototype.getAllProducts = function(){
+  return this.products;
+}
+
 const products = [
   {
     id: 0,
@@ -20,6 +43,7 @@ const products = [
     price: 5.99
   }
 ];
+
 
 /* 
 We filled up the rest of the products array to speed up the process.
